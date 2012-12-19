@@ -45,11 +45,25 @@ ARCH_ARM_HAVE_TLS_REGISTER := true
 TARGET_NO_RADIOIMAGE := true
 TARGET_BOOTLOADER_BOARD_NAME := 
 TARGET_BOARD_PLATFORM := tegra
-TARGET_TEGRA_VERSION := t30
+TARGET_TEGRA_VERSION := t33
 
-# EGL settings
-USE_OPENGL_RENDERER := true
+# Enable WEBGL in WebKit
+ENABLE_WEBGL := true
+
+# Graphics
 BOARD_EGL_CFG := device/htc/enrc2b/configs/egl.cfg
+USE_OPENGL_RENDERER := true
+BOARD_USES_OVERLAY := true
+BOARD_USES_HWCOMPOSER := true
+BOARD_NO_ALLOW_DEQUEUE_CURRENT_BUFFER := true
+TARGET_HAS_WAITFORVSYNC := true
+TARGET_HAVE_HDMI_OUT := true
+TARGET_USES_GL_VENDOR_EXTENSIONS := true
+USE_OPENGL_RENDERER := true
+BOARD_EGL_NEEDS_LEGACY_FB := true
+
+# Graphics - Skia
+BOARD_USE_SKIA_LCDTEXT := true
 
 # Wifi related defines
 BOARD_WPA_SUPPLICANT_DRIVER := NL80211
@@ -83,7 +97,7 @@ BOARD_HAS_SDCARD_INTERNAL := true
 COMMON_GLOBAL_CFLAGS += -DHTCLOG
 
 # Kernel / Ramdisk
-#TARGET_PREBUILT_KERNEL := device/htc/enrc2b/prebuilt/kernel
+TARGET_PREBUILT_KERNEL := device/htc/enrc2b/prebuilt/kernel
 TARGET_PROVIDES_INIT_TARGET_RC := true
 TARGET_USERIMAGES_USE_EXT4 := true
 BOARD_BOOTIMAGE_PARTITION_SIZE := 8388608
@@ -97,25 +111,4 @@ TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/class/android_usb/android0/f_mass_storag
 # Try to build the kernel
 TARGET_KERNEL_SOURCE := kernel/htc/enrc2b
 
-#
-TARGET_PREBUILT_KERNEL := device/htc/enrc2b/prebuilt/kernel
 
-#Recovery
-
-# CWM Configurations UNCOMMENT TO USE CWM
-#TARGET_RECOVERY_INITRC := device/htc/enrc2b/recovery/init.rc
-#BOARD_USES_MMCUTILS := true
-#BOARD_HAS_NO_MISC_PARTITION := false
-#BOARD_UMS_LUNFILE := "/sys/devices/platform/fsl-tegra-udc/gadget/lun0/file"
-#TARGET_PREBUILT_RECOVERY_KERNEL := device/htc/enrc2b/prebuilt/recovery_kernel
-#BOARD_HAS_LARGE_FILESYSTEM := true
-#BOARD_HAS_NO_SELECT_BUTTON := false
-
-# TWRP Configurations comment these out to use CWM
-#DEVICE_RESOLUTION := 720x1280
-#BOARD_HAS_NO_REAL_SDCARD := true
-#TARGET_RECOVERY_INITRC := device/htc/enrc2b/recovery/init.twrp.rc
-#TW_FLASH_FROM_STORAGE := true
-#RECOVERY_SDCARD_ON_DATA := true
-#TW_INTERNAL_STORAGE_PATH := "/data/media"
-#TW_INTERNAL_STORAGE_MOUNT_POINT := "data"

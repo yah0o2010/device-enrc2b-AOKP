@@ -172,7 +172,11 @@ PRODUCT_PACKAGES += \
 
 # Missed apps
 PRODUCT_PACKAGES += \
-	Torch-cm10
+	Torch-cm10 \
+    Music \
+    libncurses \
+    bash \
+    brcm_patchram_plus
 
 # Misc
 PRODUCT_PACKAGES += \
@@ -224,7 +228,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
         dalvik.vm.execution-mode=int:jit \
         dalvik.vm.lockprof.threshold=500 \
         dalvik.vm.dexopt-flags=m=y \
-    persist.sys.usb.config=mtp,adb
+        dalvik.vm.dexopt-data-only=1 \
+        persist.sys.usb.config=mtp,adb
 
 # Tegra 3 spacific overrides
 PRODUCT_PROPERTY_OVERRIDES += \
