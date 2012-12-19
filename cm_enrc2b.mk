@@ -172,11 +172,11 @@ PRODUCT_PACKAGES += \
 
 # Missed apps
 PRODUCT_PACKAGES += \
-	Torch-cm10 \
     Music \
     libncurses \
     bash \
-    brcm_patchram_plus
+    brcm_patchram_plus \
+    CMFileManager
 
 # Misc
 PRODUCT_PACKAGES += \
