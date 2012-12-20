@@ -145,8 +145,7 @@ PRODUCT_PACKAGES += \
     audio.usb.default \
     libtinyalsa \
     libaudioutils \
-    libinvensense_mpl  \
-    libasound
+    libinvensense_mpl
 
 # iw
 PRODUCT_PACKAGES += \
@@ -382,6 +381,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/proprietary/lib/libcameraface.so:/system/lib/libcameraface.so \
     $(LOCAL_PATH)/proprietary/lib/libcameraasd.so:/system/lib/libcameraasd.so \
     $(LOCAL_PATH)/proprietary/lib/libcamerapp.so:/system/lib/libcamerapp.so \
+    $(LOCAL_PATH)/proprietary/lib/libasound.so:/system/lib/libasound.so \
     $(LOCAL_PATH)/proprietary/vendor/lib/libwvm.so:/system/lib/libwvm.so \
     $(LOCAL_PATH)/proprietary/vendor/lib/libwvdrm_L1.so:/system/lib/libwvdrm_L1.so \
     $(LOCAL_PATH)/proprietary/vendor/lib/libWVStreamControlAPI_L1.so:/system/lib/libWVStreamControlAPI_L1.so \
