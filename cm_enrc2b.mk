@@ -55,7 +55,8 @@ PRODUCT_COPY_FILES += \
     device/htc/enrc2b/configs/calibration:system/etc/calibration \
     device/htc/enrc2b/configs/hostapd:system/bin/hostapd \
     device/htc/enrc2b/configs/asound.conf:system/etc/asound.conf \
-    device/htc/enrc2b/configs/audio_policy.conf:system/etc/audio_policy.conf
+    device/htc/enrc2b/configs/audio_policy.conf:system/etc/audio_policy.conf \
+    device/htc/enrc2b/configs/enctune.conf:system/etc/enctune.conf
 
 #Testing Configs
 PRODUCT_COPY_FILES += \
