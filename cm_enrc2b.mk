@@ -55,15 +55,12 @@ PRODUCT_COPY_FILES += \
     device/htc/enrc2b/configs/calibration:system/etc/calibration \
     device/htc/enrc2b/configs/hostapd:system/bin/hostapd \
     device/htc/enrc2b/configs/asound.conf:system/etc/asound.conf \
-    device/htc/enrc2b/configs/audio_policy.conf:system/etc/audio_policy.conf
-
+    device/htc/enrc2b/configs/audio_policy.conf:system/etc/audio_policy.conf \
+    device/htc/enrc2b/configs/bluetooth/bt_vendor.conf:system/etc/bluetooth/bt_vendor.conf
+::
 #Testing Configs
 PRODUCT_COPY_FILES += \
      device/htc/enrc2b/configs/dbus.conf:system/etc/dbus.conf
-
-# BT config
-PRODUCT_COPY_FILES += \
-  system/bluetooth/data/main.conf:system/etc/bluetooth/main.conf
 
   # Prebuilt Alsa configs
 PRODUCT_COPY_FILES += \
@@ -175,7 +172,6 @@ PRODUCT_PACKAGES += \
     Music \
     libncurses \
     bash \
-    brcm_patchram_plus \
     CMFileManager
 
 # Misc
@@ -412,7 +408,8 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/proprietary/etc/firmware/nvavp_os_0ff00000.bin:system/etc/firmware/nvavp_os_0ff00000.bin \
     $(LOCAL_PATH)/proprietary/etc/firmware/nvavp_os_eff00000.bin:system/etc/firmware/nvavp_os_eff00000.bin \
     $(LOCAL_PATH)/proprietary/etc/firmware/nvavp_vid_ucode.bin:system/etc/firmware/nvavp_vid_ucode.bin \
-    $(LOCAL_PATH)/proprietary/etc/firmware/nvavp_vid_ucode_alt.bin:system/etc/firmware/nvavp_vid_ucode_alt.bin
+    $(LOCAL_PATH)/proprietary/etc/firmware/nvavp_vid_ucode_alt.bin:system/etc/firmware/nvavp_vid_ucode_alt.bin \
+    $(LOCAL_PATH)/proprietary/vendor/firmware/libpn544_fw.so:system/vendor/firmware/libpn544_fw.so
 
 # Sound
 PRODUCT_COPY_FILES += \
