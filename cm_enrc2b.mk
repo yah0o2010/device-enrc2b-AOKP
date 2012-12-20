@@ -171,7 +171,9 @@ PRODUCT_PACKAGES += \
 
 # Missed apps
 PRODUCT_PACKAGES += \
-	Torch-cm10
+	Torch \
+	Music \
+    CMFileManager
 
 # Misc
 PRODUCT_PACKAGES += \
