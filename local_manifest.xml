@@ -7,14 +7,6 @@
            fetch="git://github.com/" />
 
   <!-- Begin IceColdJelly42 repos -->
-  <remove-project name="AOKP/android_build" path="build"/>
-  <project path="build" name="android_build" remote="jelly42" revision="jb-mr1" >
-    <copyfile src="core/root.mk" dest="Makefile" />
-  </project>
-
-  <remove-project name="AOKP/platform_manifest" path="platform_manifest"/>
-  <project path="platform_manifest" name="platform_manifest" remote="jelly42" revision="jb-mr1" />
-
   <remove-project name="AOKP/packages_apps_Settings" path="packages/apps/Settings"/>
   <project path="packages/apps/Settings" name="packages_apps_Settings" remote="jelly42" revision="jb-mr1" />
 
@@ -38,6 +30,8 @@
   <project path="frameworks/av" name="adrian-bl-hox-jb/android_frameworks_av" remote="github" revision="jb42" />
 
   <project path="packages/apps/CMFileManager" name="android_packages_apps_CMFileManager" remote="cm" revision="jellybean"/>
+  <!--<project path="packages/apps/Apollo" name="android_packages_apps_Apollo" remote="cm" revision="jellybean"/>
+  <project path="packages/apps/DSPManager" name="android_packages_apps_DSPManager" remote="cm" revision="jellybean"/>-->
 
   <remove-project path="packages/apps/Torch" name="AOKP/packages_apps_Torch" />
   <project path="packages/apps/Torch" name="android_packages_apps_Torch" remote="cm" revision="jellybean"/>
