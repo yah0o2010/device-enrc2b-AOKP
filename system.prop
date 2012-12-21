@@ -10,6 +10,21 @@ ro.hwui.text_cache_width=2048
 ro.hwui.text_cache_height=256
 windowsmgr.max_events_per_sec = 240
 
+# Addidional info for Settings/About/Hardware
+ro.device.cpu=nVidia Tegra 33, Quad-core 1.6 GHz
+ro.device.gpu=ULP GeForce
+ro.device.front_cam=1.3MP, 720p
+ro.device.rear_cam=8MP, 1080p
+ro.device.screen_res=720 x 1280 pixels, 4.7"
+
+#Performance and battery tweaks
+ro.ril.disable.power.collapse=1
+debug.performance.tuning=1
+video.accelerate.hw=1
+debug.sf.hw=1
+ro.media.dec.jpeg.memcap=8000000
+ro.media.enc.jpeg.quality=100
+
 # UMS
 ro.vold.umsdirtyratio=50
 
