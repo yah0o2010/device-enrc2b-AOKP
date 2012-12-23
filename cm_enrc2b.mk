@@ -287,6 +287,9 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/proprietary/etc/uilock.yuv:/system/etc/uilock.yuv
 
 PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/proprietary.IceColdJelly/lib/libnvwinsys.so:/system/lib/libnvwinsys.so
+
+PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/proprietary/lib/egl/libEGL_perfhud.so:/system/lib/egl/libEGL_perfhud.so \
     $(LOCAL_PATH)/proprietary/lib/egl/libEGL_tegra.so:/system/lib/egl/libEGL_tegra.so \
     $(LOCAL_PATH)/proprietary/lib/egl/libEGL_tegra_impl.so:/system/lib/egl/libEGL_tegra_impl.so \
@@ -372,7 +375,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/proprietary/lib/libnvtestio.so:/system/lib/libnvtestio.so \
     $(LOCAL_PATH)/proprietary/lib/libnvtestresults.so:/system/lib/libnvtestresults.so \
     $(LOCAL_PATH)/proprietary/lib/libnvtvmr.so:/system/lib/libnvtvmr.so \
-    $(LOCAL_PATH)/proprietary/lib/libnvwinsys.so:/system/lib/libnvwinsys.so \
     $(LOCAL_PATH)/proprietary/lib/libnvwsi.so:/system/lib/libnvwsi.so \
     $(LOCAL_PATH)/proprietary/lib/libOlaEngineNew.so:/system/lib/libOlaEngineNew.so \
     $(LOCAL_PATH)/proprietary/lib/libposteffect.so:/system/lib/libposteffect.so \
