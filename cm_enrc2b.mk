@@ -30,11 +30,11 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES := \
     device/htc/enrc2b/ramdisk/init.rc:root/init.rc \
     device/htc/enrc2b/ramdisk/init.enrc2b.rc:root/init.enrc2b.rc \
-    device/htc/enrc2b/ramdisk/init.enrc2b.common.rc:root/init.enrc2b.common.rc \
     device/htc/enrc2b/ramdisk/init.usb.rc:root/init.usb.rc \
+    device/htc/enrc2b/ramdisk/init.trace.rc:root/init.trace.rc \
+    device/htc/enrc2b/ramdisk/init.scripts.sh:root/init.scripts.sh \
     device/htc/enrc2b/ramdisk/ueventd.rc:root/ueventd.rc \
     device/htc/enrc2b/ramdisk/ueventd.enrc2b.rc:root/ueventd.enrc2b.rc \
-    device/htc/enrc2b/ramdisk/init:root/init
 
 
 # Prebuilt Audio/GPS/Camera/Wi-Fi configs
@@ -173,7 +173,8 @@ PRODUCT_PACKAGES += \
     Music \
     libncurses \
     bash \
-    CMFileManager
+    CMFileManager \
+    SoundRecorder
 
 # Misc
 PRODUCT_PACKAGES += \
@@ -204,20 +205,23 @@ endif
 
 # Permissions
 PRODUCT_COPY_FILES += \
-    device/htc/enrc2b/configs/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml \
-    frameworks/native/data/etc/android.hardware.camera.flash-autofocus.xml:system/etc/permissions/android.hardware.camera.flash-autofocus.xml \
-    frameworks/native/data/etc/android.hardware.camera.front.xml:system/etc/permissions/android.hardware.camera.front.xml \
-    frameworks/native/data/etc/android.hardware.location.gps.xml:system/etc/permissions/android.hardware.location.gps.xml \
-    frameworks/native/data/etc/android.hardware.nfc.xml:system/etc/permissions/android.hardware.nfc.xml \
-    frameworks/native/data/etc/android.hardware.sensor.gyroscope.xml:system/etc/permissions/android.hardware.sensor.gyroscope.xml \
-    frameworks/native/data/etc/android.hardware.sensor.light.xml:system/etc/permissions/android.hardware.sensor.light.xml \
-    frameworks/native/data/etc/android.hardware.sensor.proximity.xml:system/etc/permissions/android.hardware.sensor.proximity.xml \
-    frameworks/native/data/etc/android.hardware.touchscreen.multitouch.jazzhand.xml:system/etc/permissions/android.hardware.touchscreen.multitouch.jazzhand.xml \
-    frameworks/native/data/etc/android.hardware.telephony.gsm.xml:system/etc/permissions/android.hardware.telephony.gsm.xml \
-    frameworks/native/data/etc/android.hardware.usb.accessory.xml:system/etc/permissions/android.hardware.usb.accessory.xml \
-    frameworks/native/data/etc/android.hardware.usb.host.xml:system/etc/permissions/android.hardware.usb.host.xml \
-    frameworks/native/data/etc/android.hardware.wifi.xml:system/etc/permissions/android.hardware.wifi.xml \
-    frameworks/native/data/etc/android.hardware.wifi.direct.xml:system/etc/permissions/android.hardware.wifi.direct.xml
+        frameworks/native/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml \
+        frameworks/native/data/etc/android.hardware.telephony.gsm.xml:system/etc/permissions/android.hardware.telephony.gsm.xml \
+        frameworks/native/data/etc/android.hardware.camera.flash-autofocus.xml:system/etc/permissions/android.hardware.camera.flash-autofocus.xml \
+        frameworks/native/data/etc/android.hardware.camera.front.xml:system/etc/permissions/android.hardware.camera.front.xml \
+        frameworks/native/data/etc/android.hardware.location.gps.xml:system/etc/permissions/android.hardware.location.gps.xml \
+        frameworks/native/data/etc/android.hardware.nfc.xml:system/etc/permissions/android.hardware.nfc.xml \
+        frameworks/native/data/etc/android.hardware.sensor.gyroscope.xml:system/etc/permissions/android.hardware.sensor.gyroscope.xml \
+        frameworks/native/data/etc/android.hardware.sensor.light.xml:system/etc/permissions/android.hardware.sensor.light.xml \
+        frameworks/native/data/etc/android.hardware.sensor.proximity.xml:system/etc/permissions/android.hardware.sensor.proximity.xml \
+        frameworks/native/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml \
+        frameworks/native/data/etc/android.hardware.touchscreen.multitouch.jazzhand.xml:system/etc/permissions/android.hardware.touchscreen.multitouch.jazzhand.xml \
+        frameworks/native/data/etc/android.hardware.telephony.gsm.xml:system/etc/permissions/android.hardware.telephony.gsm.xml \
+        frameworks/native/data/etc/android.hardware.usb.accessory.xml:system/etc/permissions/android.hardware.usb.accessory.xml \
+        frameworks/native/data/etc/android.hardware.usb.host.xml:system/etc/permissions/android.hardware.usb.host.xml \
+        frameworks/native/data/etc/android.hardware.wifi.xml:system/etc/permissions/android.hardware.wifi.xml \
+        frameworks/base/nfc-extras/com.android.nfc_extras.xml:system/etc/permissions/com.android.nfc_extras.xml \
+	    packages/wallpapers/LivePicker/android.software.live_wallpaper.xml:system/etc/permissions/android.software.live_wallpaper.xml
 
 PRODUCT_PROPERTY_OVERRIDES += \
         ro.com.google.locationfeatures=1 \
@@ -225,7 +229,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
         dalvik.vm.execution-mode=int:jit \
         dalvik.vm.lockprof.threshold=500 \
         dalvik.vm.dexopt-flags=m=y \
-        dalvik.vm.dexopt-data-only=1 \
         persist.sys.usb.config=mtp,adb
 
 # Tegra 3 spacific overrides
@@ -280,7 +283,8 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/proprietary/bin/htcfs:/system/bin/htcfs \
     $(LOCAL_PATH)/proprietary/etc/voicemail-conf.xml:/system/etc/voicemail-conf.xml \
     $(LOCAL_PATH)/proprietary/bin/IMCdownload:/system/bin/IMCdownload \
-    $(LOCAL_PATH)/proprietary/bin/htc_ebdlogd:/system/bin/htc_ebdlogd
+    $(LOCAL_PATH)/proprietary/bin/htc_ebdlogd:/system/bin/htc_ebdlogd \
+    $(LOCAL_PATH)/proprietary/etc/uilock.yuv:/system/etc/uilock.yuv
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/proprietary/lib/egl/libEGL_perfhud.so:/system/lib/egl/libEGL_perfhud.so \
@@ -400,7 +404,6 @@ PRODUCT_COPY_FILES += \
 
 # Firmware
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/proprietary/etc/firmware/bcm4330.hcd:system/etc/firmware/bcm4330.hcd \
     $(LOCAL_PATH)/proprietary/etc/firmware/BCM4334B0_002.001.013.0767.0777.hcd:system/etc/firmware/bcm4334.hcd \
     $(LOCAL_PATH)/proprietary/etc/firmware/fw_bcm4334.bin:system/etc/firmware/fw_bcm4334.bin \
     $(LOCAL_PATH)/proprietary/etc/firmware/fw_bcm4334_apsta.bin:system/etc/firmware/fw_bcm4334_apsta.bin \
