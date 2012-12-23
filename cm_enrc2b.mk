@@ -173,8 +173,7 @@ PRODUCT_PACKAGES += \
     Music \
     libncurses \
     bash \
-    CMFileManager \
-    SoundRecorder
+    CMFileManager
 
 # Misc
 PRODUCT_PACKAGES += \
