@@ -30,11 +30,12 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES := \
     device/htc/enrc2b/ramdisk/init.rc:root/init.rc \
     device/htc/enrc2b/ramdisk/init.enrc2b.rc:root/init.enrc2b.rc \
-    device/htc/enrc2b/ramdisk/init.enrc2b.common.rc:root/init.enrc2b.common.rc \
     device/htc/enrc2b/ramdisk/init.usb.rc:root/init.usb.rc \
+    device/htc/enrc2b/ramdisk/init.trace.rc:root/init.trace.rc \
+    device/htc/enrc2b/ramdisk/init.scripts.sh:root/init.scripts.sh \
     device/htc/enrc2b/ramdisk/ueventd.rc:root/ueventd.rc \
     device/htc/enrc2b/ramdisk/ueventd.enrc2b.rc:root/ueventd.enrc2b.rc \
-    device/htc/enrc2b/ramdisk/init:root/init
+    device/htc/enrc2b/ramdisk/fstab.enrc2b:root/fstab.enrc2b
 
 
 # Prebuilt Audio/GPS/Camera/Wi-Fi configs
@@ -45,18 +46,18 @@ PRODUCT_COPY_FILES += \
     device/htc/enrc2b/configs/nvcamera.conf:system/etc/nvcamera.conf \
     device/htc/enrc2b/configs/nvcamera_2nd.conf:system/etc/nvcamera_2nd.conf \
     device/htc/enrc2b/configs/media_profiles.xml:system/etc/media_profiles.xml \
+    device/htc/enrc2b/configs/media_codecs.xml:system/etc/media_codecs.xml \
     device/htc/enrc2b/configs/gps.conf:system/etc/gps.conf \
     device/htc/enrc2b/configs/gps/gpsconfig.xml:system/etc/gps/gpsconfig.xml \
     device/htc/enrc2b/configs/gps/gpsconfig_release.xml:system/etc/gps/gpsconfig_release.xml \
     device/htc/enrc2b/configs/htcfs.conf:system/etc/htcfs.conf \
     device/htc/enrc2b/configs/hostapd.conf:system/etc/wifi/hostapd.conf \
-    device/htc/enrc2b/configs/TQS_D_1.7.ini:system/etc/wifi/TQS_D_1.7.ini \
     device/htc/enrc2b/configs/dhcpcd.conf:system/etc/dhcpcd/dhcpcd.conf \
     device/htc/enrc2b/configs/calibration:system/etc/calibration \
-    device/htc/enrc2b/configs/hostapd:system/bin/hostapd \
     device/htc/enrc2b/configs/asound.conf:system/etc/asound.conf \
     device/htc/enrc2b/configs/audio_policy.conf:system/etc/audio_policy.conf \
-    device/htc/enrc2b/configs/enctune.conf:system/etc/enctune.conf
+    device/htc/enrc2b/configs/enctune.conf:system/etc/enctune.conf \
+    device/htc/enrc2b/configs/sysctl.conf:system/etc/sysctl.conf
 
 #Testing Configs
 PRODUCT_COPY_FILES += \
@@ -125,10 +126,12 @@ PRODUCT_COPY_FILES += \
     device/htc/enrc2b/scripts/handle_compcache:system/bin/handle_compcache
 
 # Hostapd
+PRODUCT_COPY_FILES += \
+    device/htc/enrc2b/hostap/hostapd:system/bin/hostapd
+
 PRODUCT_PACKAGES += \
          hostapd_cli \
-         calibrator \
-         hostapd
+         calibrator
 
 # lights
 PRODUCT_PACKAGES += \
@@ -226,11 +229,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
         dalvik.vm.execution-mode=int:jit \
         dalvik.vm.lockprof.threshold=500 \
         dalvik.vm.dexopt-flags=m=y \
-    persist.sys.usb.config=mtp,adb
+        persist.sys.usb.config=mtp,adb
 
 # Tegra 3 spacific overrides
 PRODUCT_PROPERTY_OVERRIDES += \
-	persist.tegra.nvmmlite=1 \
+	    persist.tegra.nvmmlite=1 \
         ro.vendor.extension_library=/system/lib/libhtc-opt2.so \
         tf.enable=y
 
@@ -275,13 +278,13 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/proprietary/bin/getnvm.sh:/system/bin/getnvm.sh \
     $(LOCAL_PATH)/proprietary/bin/hdcp_test:/system/bin/hdcp_test \
     $(LOCAL_PATH)/proprietary/bin/nvtest:/system/bin/nvtest \
-    $(LOCAL_PATH)/proprietary/etc/media_codecs.xml:/system/etc/media_codecs.xml \
     $(LOCAL_PATH)/proprietary/etc/nfcee_access.xml:/system/etc/nfcee_access.xml \
     $(LOCAL_PATH)/proprietary/bin/DxDrmServerIpc:/system/bin/DxDrmServerIpc \
     $(LOCAL_PATH)/proprietary/bin/htcfs:/system/bin/htcfs \
     $(LOCAL_PATH)/proprietary/etc/voicemail-conf.xml:/system/etc/voicemail-conf.xml \
     $(LOCAL_PATH)/proprietary/bin/IMCdownload:/system/bin/IMCdownload \
-    $(LOCAL_PATH)/proprietary/bin/htc_ebdlogd:/system/bin/htc_ebdlogd
+    $(LOCAL_PATH)/proprietary/bin/htc_ebdlogd:/system/bin/htc_ebdlogd \
+    $(LOCAL_PATH)/proprietary/etc/uilock.yuv:/system/etc/uilock.yuv
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/proprietary/lib/egl/libEGL_perfhud.so:/system/lib/egl/libEGL_perfhud.so \
@@ -401,7 +404,6 @@ PRODUCT_COPY_FILES += \
 
 # Firmware
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/proprietary/etc/firmware/bcm4330.hcd:system/etc/firmware/bcm4330.hcd \
     $(LOCAL_PATH)/proprietary/etc/firmware/BCM4334B0_002.001.013.0767.0777.hcd:system/etc/firmware/bcm4334.hcd \
     $(LOCAL_PATH)/proprietary/etc/firmware/fw_bcm4334.bin:system/etc/firmware/fw_bcm4334.bin \
     $(LOCAL_PATH)/proprietary/etc/firmware/fw_bcm4334_apsta.bin:system/etc/firmware/fw_bcm4334_apsta.bin \

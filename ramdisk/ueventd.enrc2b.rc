@@ -46,7 +46,7 @@
 /dev/tfa9887                0664   system     audio
 /dev/ttyHS0                 0664   radio      system
 /dev/ttyHS1                 0664   root       system
-/dev/ttyHS2                 0660   bluetooth  bluetooth
+/dev/ttyHS2                 0666   bluetooth  net_bt_stack
 /dev/ion                    0666   system     system
 /dev/pn544                  0660   nfc        nfc
 /dev/timerinfo              0444   system     system
@@ -58,5 +58,5 @@
 # HtcCarGPS
 /dev/ttyHSUSB1              0600   system     system
 
-# autobot
+# Autobot
 /dev/ttyHSUSB3              0660   autobot_access  autobot_access
