@@ -11,7 +11,7 @@ ro.hwui.text_cache_height=256
 windowsmgr.max_events_per_sec = 240
 
 # Addidional info for Settings/About/Hardware
-ro.device.cpu=nVidia Tegra 3, Quad-core 1.6 GHz (1.7 Ghz)
+ro.device.cpu=nVidia Tegra AP37/1.7GHz
 ro.device.gpu=ULP GeForce
 ro.device.front_cam=1.6MP, 720p
 ro.device.rear_cam=8MP, 1080p

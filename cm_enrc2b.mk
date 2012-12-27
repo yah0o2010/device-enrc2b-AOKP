@@ -157,24 +157,16 @@ PRODUCT_PACKAGES += \
     Polly \
     pollyd
 
-# fmradio
-
-#PRODUCT_PACKAGES += \
-#    Fmapplication \
-#    FmRxService \
-#    libfm_stack \
-#    fmreceiverif \
-#    com.ti.fm.fmreceiverif.xml \
-#    libfmrx
-
-# Missed apps
+# other apps
 PRODUCT_PACKAGES += \
     Apollo \
    	DSPManager \
    	libcyanogen-dsp \
     libncurses \
     bash \
-    CMFileManager
+    CMFileManager \
+    Trebuchet \
+    PinyinIME
 
 # Misc
 PRODUCT_PACKAGES += \
