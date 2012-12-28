@@ -112,8 +112,9 @@ PRODUCT_COPY_FILES += \
 # in /system/lib/modules are equal to /lib/modules
 PRODUCT_COPY_FILES += \
         device/htc/enrc2b/scripts/01-module-check:system/etc/init.d/01-module-check \
-        device/htc/enrc2b/scripts/02-aokp-tune:system/etc/init.d/02-aokp-tune
-
+        device/htc/enrc2b/scripts/02-aokp-tune:system/etc/init.d/02-aokp-tune \
+        device/htc/enrc2b/scripts/03-kernel-tune:system/etc/init.d/03-kernel-tune \
+        
 # patched zram scripts
 PRODUCT_COPY_FILES += \
     device/htc/enrc2b/scripts/compcache:system/bin/compcache \
