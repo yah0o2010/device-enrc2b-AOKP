@@ -163,17 +163,7 @@ PRODUCT_PACKAGES += \
     Polly \
     pollyd
 
-# fmradio
-
-#PRODUCT_PACKAGES += \
-#    Fmapplication \
-#    FmRxService \
-#    libfm_stack \
-#    fmreceiverif \
-#    com.ti.fm.fmreceiverif.xml \
-#    libfmrx
-
-# Missed apps
+# other apps
 PRODUCT_PACKAGES += \
 	Torch \
 	Music \
