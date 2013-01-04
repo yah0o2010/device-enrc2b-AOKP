@@ -90,12 +90,12 @@
          than the size of the config_autoBrightnessLevels array.
     -->
     <integer-array name="config_autoBrightnessButtonBacklightValues">
-        <item>60</item>
-        <item>60</item>
-        <item>60</item>
-        <item>60</item>
-        <item>60</item>
-        <item>60</item>
+        <item>1</item>
+        <item>1</item>
+        <item>1</item>
+        <item>1</item>
+        <item>1</item>
+        <item>1</item>
         <item>0</item>
         <item>0</item>
         <item>0</item>
