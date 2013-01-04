@@ -134,6 +134,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
         lights.tegra
 
+# power
+PRODUCT_PACKAGES += \
+        power.tegra
+        
 #NFC
 PRODUCT_PACKAGES += \
     libnfc \
