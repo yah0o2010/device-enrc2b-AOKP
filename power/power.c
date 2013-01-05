@@ -26,7 +26,6 @@
 #include <hardware/hardware.h>
 #include <hardware/power.h>
 
-#define BOOST_PATH      "/sys/devices/system/cpu/cpufreq/interactive/boost"
 static int boost_fd = -1;
 static int boost_warned;
 
@@ -60,26 +59,26 @@ static void enrc2b_power_init(struct power_module *module)
 
 	ALOGI("enrc2b_power_init");
 	
-    /*sysfs_write("/sys/devices/system/cpu/cpufreq/interactive/timer_rate",
+    sysfs_write("/sys/devices/system/cpu/cpufreq/interactive/timer_rate",
                 "20000");
     sysfs_write("/sys/devices/system/cpu/cpufreq/interactive/min_sample_time",
                 "30000");
-    sysfs_write("/sys/devices/system/cpu/cpufreq/interactive/go_hispeed_load",
+    sysfs_write("/sys/devices/system/cpu/cpufreq/interactive/go_maxspeed_load",
                 "80");
     sysfs_write("/sys/devices/system/cpu/cpufreq/interactive/boost_factor",
 		"0");
     sysfs_write("/sys/devices/system/cpu/cpufreq/interactive/input_boost",
-		"1");*/
+		"1");
 }
 
 static void enrc2b_power_set_interactive(struct power_module *module, int on)
 {
 	ALOGI("enrc2b_power_set_interactive %d", on);
-    /*sysfs_write("/sys/devices/system/cpu/cpufreq/interactive/input_boost",
+    sysfs_write("/sys/devices/system/cpu/cpufreq/interactive/input_boost",
                 on ? "1" : "0");
 
     sysfs_write("/sys/devices/system/cpu/cpufreq/interactive/boost_factor",
-                on ? "0" : "2");*/
+                on ? "0" : "2");
 }
 
 static void enrc2b_power_hint(struct power_module *module, power_hint_t hint,
@@ -103,7 +102,7 @@ static void enrc2b_power_hint(struct power_module *module, power_hint_t hint,
         //ALOGI("enrc2b_power_hint POWER_HINT_CPU_BOOST");
         break;
     default:
-        ALOGI("enrc2b_power_hint unknown:%d", hint);
+        //ALOGI("enrc2b_power_hint unknown:%d", hint);
         break;
     }
 }
