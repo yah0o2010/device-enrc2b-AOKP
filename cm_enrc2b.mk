@@ -129,6 +129,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     device/htc/enrc2b/hostap/hostapd:system/bin/hostapd
 
+# boot animation
+#PRODUCT_COPY_FILES += \
+#    device/htc/enrc2b/bootanimation/bootanimation.zip:system/media/bootanimation.zip
+    
 PRODUCT_PACKAGES += \
          hostapd_cli \
          calibrator
