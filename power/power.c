@@ -146,7 +146,6 @@ static void enrc2b_power_set_interactive(struct power_module *module, int on)
 		ALOGI("enrc2b_power_set_interactive %s %d", governor, on);
 		
         sysfs_write("/sys/devices/system/cpu/cpufreq/interactive/input_boost", on ? "1" : "0");
-    	sysfs_write("/sys/devices/system/cpu/cpufreq/interactive/boost_factor", on ? "0" : "2");
     }
     else if (strncmp(governor, ONDEMAND_GOVERNOR, strlen(ONDEMAND_GOVERNOR)) == 0){
 		ALOGI("enrc2b_power_set_interactive %s %d", governor, on);
