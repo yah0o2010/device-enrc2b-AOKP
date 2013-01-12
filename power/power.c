@@ -32,7 +32,7 @@ static int boost_warned;
 #define SCALING_GOVERNOR_PATH "/sys/devices/system/cpu/cpu0/cpufreq/scaling_governor"
 #define ONDEMAND_GOVERNOR "ondemand"
 #define INTERACTIVE_GOVERNOR "interactive"
-
+#define INTERACTIVE_INPUT_BOOST "/sys/devices/system/cpu/cpufreq/interactive/input_boost"
 #define ONDEMAND_SAMPLING_RATE "/sys/devices/system/cpu/cpufreq/ondemand/sampling_rate"
 #define ONDEMAND_SAMPLING_RATE_SCREEN_ON "50000"
 #define ONDEMAND_SAMPLING_RATE_SCREEN_OFF "500000"
@@ -111,26 +111,11 @@ static void enrc2b_power_init(struct power_module *module)
 		return;
 	
     if (strncmp(governor, INTERACTIVE_GOVERNOR, strlen(INTERACTIVE_GOVERNOR)) == 0){
+		// govener tweaks are set in the kernel
 		ALOGI("enrc2b_power_init %s", governor);
-		
-		// permissions for interactive tweaks are set in ramdisk
-		// because is the default govenor in the kernel
-	   	sysfs_write("/sys/devices/system/cpu/cpufreq/interactive/go_maxspeed_load", "85");
-    	sysfs_write("/sys/devices/system/cpu/cpufreq/interactive/boost_factor","0");
-    	sysfs_write("/sys/devices/system/cpu/cpufreq/interactive/max_boost","0");
-    	sysfs_write("/sys/devices/system/cpu/cpufreq/interactive/sustain_load","95");
-    	sysfs_write("/sys/devices/system/cpu/cpufreq/interactive/min_sample_time","30000");
-    	sysfs_write("/sys/devices/system/cpu/cpufreq/interactive/timer_rate","20000");
-    	sysfs_write("/sys/devices/system/cpu/cpufreq/interactive/input_boost","0");
-    	sysfs_write("/sys/devices/system/cpu/cpufreq/interactive/boost","0");
-    	sysfs_write("/sys/devices/system/cpu/cpufreq/interactive/above_hispeed_delay","20000");
-    	sysfs_write("/sys/devices/system/cpu/cpufreq/interactive/go_hispeed_load","85");
-    	sysfs_write("/sys/devices/system/cpu/cpufreq/interactive/hispeed_freq","1700000");
-    	sysfs_write("/sys/devices/system/cpu/cpufreq/interactive/io_is_busy","0");
 	}
 	else if (strncmp(governor, ONDEMAND_GOVERNOR, strlen(ONDEMAND_GOVERNOR)) == 0){
-		// govener tweaks are set in the kernel because all other permissions
-		// are not correct to be set here
+		// govener tweaks are set in the kernel
 		ALOGI("enrc2b_power_init %s", governor);
     }
 }
@@ -144,8 +129,7 @@ static void enrc2b_power_set_interactive(struct power_module *module, int on)
 		
     if (strncmp(governor, INTERACTIVE_GOVERNOR, strlen(INTERACTIVE_GOVERNOR)) == 0){
 		ALOGI("enrc2b_power_set_interactive %s %d", governor, on);
-		
-        sysfs_write("/sys/devices/system/cpu/cpufreq/interactive/input_boost", on ? "1" : "0");
+        sysfs_write(INTERACTIVE_INPUT_BOOST, on ? "1" : "0");
     }
     else if (strncmp(governor, ONDEMAND_GOVERNOR, strlen(ONDEMAND_GOVERNOR)) == 0){
 		ALOGI("enrc2b_power_set_interactive %s %d", governor, on);
