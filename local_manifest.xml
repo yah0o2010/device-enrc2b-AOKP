@@ -63,7 +63,13 @@
 
   <remove-project path="external/wpa_supplicant_8" name="platform/external/wpa_supplicant_8" />
   <project path="external/wpa_supplicant_8" name="android_external_wpa_supplicant_8" remote="jelly42" revision="jb-mr1" />
-    
+
+  <remove-project path="packages/apps/DeskClock" name="AOKP/packages_apps_DeskClock"/>
+  <project path="packages/apps/DeskClock" name="packages_apps_DeskClock" remote="jelly42" revision="jb-mr1" />
+
+  <remove-project path="packages/apps/Bluetooth" name="platform/packages/apps/Bluetooth" />
+  <project path="packages/apps/Bluetooth" name="packages_apps_Bluetooth" remote="jelly42" revision="jb-mr1" />
+   
   <!-- CM repos -->
   <project path="packages/apps/CMFileManager" name="android_packages_apps_CMFileManager" remote="cm" revision="cm-10.1"/>
   <project path="packages/apps/Apollo" name="android_packages_apps_Apollo" remote="cm" revision="cm-10.1"/>
@@ -71,5 +77,8 @@
   <project path="packages/apps/Trebuchet" name="android_packages_apps_Trebuchet" remote="cm" revision="cm-10.1"/>
     
   <remove-project path="packages/apps/Torch" name="AOKP/packages_apps_Torch" />
-  <project path="packages/apps/Torch" name="android_packages_apps_Torch" remote="cm" revision="cm-10.1"/>      
+  <project path="packages/apps/Torch" name="android_packages_apps_Torch" remote="cm" revision="cm-10.1"/>   
+    
+  <remove-project path="packages/apps/Exchange" name="platform/packages/apps/Exchange" />
+  <project path="packages/apps/Exchange" name="android_packages_apps_Exchange" remote="cm" revision="cm-10.1"/>      
 </manifest>
