@@ -180,8 +180,9 @@ PRODUCT_PACKAGES += \
     bash \
     CMFileManager \
     Trebuchet \
-    PinyinIME
-
+    PinyinIME \
+    PerformanceTool
+    
 # Misc
 PRODUCT_PACKAGES += \
     com.android.future.usb.accessory \
