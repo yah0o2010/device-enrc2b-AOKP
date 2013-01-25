@@ -52,8 +52,9 @@ public class PollyService extends Service {
 	private AudioManager aMgr;
 	private TelephonyManager tMgr;
 	private int lastvol = -1;
-        private boolean inCall = false;
-        private static String TAG = "PollyService";
+    private boolean inCall = false;
+    private static String TAG = "PollyService";
+    private static boolean boothackDone = false;
 	
 	@Override
 	public IBinder onBind(Intent i) {
@@ -73,9 +74,11 @@ public class PollyService extends Service {
         // initial value
     	lastvol = aMgr.getStreamVolume(aMgr.STREAM_VOICE_CALL);
 
-        if(isAudioVolumeHackRequired()){
-            applyAudioVolumeHack(); 
-        }
+		// maxwen: service can be restarted and will send headset insert then
+		// which will cause troubles with apps listening to it
+        //if(isAudioVolumeHackRequired()){
+        //    applyAudioVolumeHack(); 
+        //}
 
 		registerReceiver(ply_receiver, new IntentFilter(INTENT_VOLUME));    /* undocumented */
 		registerReceiver(ply_receiver, new IntentFilter(INTENT_AIRPLANE));
@@ -84,8 +87,11 @@ public class PollyService extends Service {
 	}
 
         private boolean isAudioVolumeHackRequired() {
+        	if(!boothackDone){
                 String value = fileReadOneLine("/sys/class/switch/h2w/state");
                 return value!=null && value.equals("0");
+            }
+            return false;
         }
 
         private void applyAudioVolumeHack() {
@@ -102,6 +108,7 @@ public class PollyService extends Service {
                         f.invoke(aMgr, 8, 0, new String("Headset"));
 
                         f.setAccessible(false);  
+                        boothackDone = true;
 
                         Log.d(TAG,"apply volume hack success");
                 } catch (InvocationTargetException e) {
