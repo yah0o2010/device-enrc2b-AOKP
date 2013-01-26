@@ -30,12 +30,8 @@ static int boost_fd = -1;
 static int boost_warned;
 
 #define SCALING_GOVERNOR_PATH "/sys/devices/system/cpu/cpu0/cpufreq/scaling_governor"
-#define ONDEMAND_GOVERNOR "ondemand"
 #define INTERACTIVE_GOVERNOR "interactive"
 #define INTERACTIVE_INPUT_BOOST "/sys/devices/system/cpu/cpufreq/interactive/input_boost"
-#define ONDEMAND_SAMPLING_RATE "/sys/devices/system/cpu/cpufreq/ondemand/sampling_rate"
-#define ONDEMAND_SAMPLING_RATE_SCREEN_ON "50000"
-#define ONDEMAND_SAMPLING_RATE_SCREEN_OFF "500000"
 
 static void sysfs_write(char *path, char *s)
 {
@@ -110,14 +106,7 @@ static void enrc2b_power_init(struct power_module *module)
 	if(get_scaling_governor(governor, sizeof(governor))!=0)
 		return;
 	
-    if (strncmp(governor, INTERACTIVE_GOVERNOR, strlen(INTERACTIVE_GOVERNOR)) == 0){
-		// govener tweaks are set in the kernel
-		ALOGI("enrc2b_power_init %s", governor);
-	}
-	else if (strncmp(governor, ONDEMAND_GOVERNOR, strlen(ONDEMAND_GOVERNOR)) == 0){
-		// govener tweaks are set in the kernel
-		ALOGI("enrc2b_power_init %s", governor);
-    }
+    ALOGI("enrc2b_power_init %s", governor);
 }
 
 static void enrc2b_power_set_interactive(struct power_module *module, int on)
@@ -127,14 +116,10 @@ static void enrc2b_power_set_interactive(struct power_module *module, int on)
 	if(get_scaling_governor(governor, sizeof(governor))!=0)
 		return;
 		
+	ALOGI("enrc2b_power_set_interactive %s %d", governor, on);
+    
     if (strncmp(governor, INTERACTIVE_GOVERNOR, strlen(INTERACTIVE_GOVERNOR)) == 0){
-		ALOGI("enrc2b_power_set_interactive %s %d", governor, on);
         sysfs_write(INTERACTIVE_INPUT_BOOST, on ? "1" : "0");
-    }
-    else if (strncmp(governor, ONDEMAND_GOVERNOR, strlen(ONDEMAND_GOVERNOR)) == 0){
-		ALOGI("enrc2b_power_set_interactive %s %d", governor, on);
-		sysfs_write(ONDEMAND_SAMPLING_RATE, on ? ONDEMAND_SAMPLING_RATE_SCREEN_ON : ONDEMAND_SAMPLING_RATE_SCREEN_OFF);
-
     }
 }
 
