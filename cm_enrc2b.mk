@@ -181,7 +181,8 @@ PRODUCT_PACKAGES += \
     CMFileManager \
     Trebuchet \
     PinyinIME \
-    PerformanceTool
+    PerformanceTool \
+    LockClock
     
 # Misc
 PRODUCT_PACKAGES += \
