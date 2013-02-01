@@ -179,7 +179,6 @@ PRODUCT_PACKAGES += \
     libncurses \
     bash \
     CMFileManager \
-    Trebuchet \
     PinyinIME \
     PerformanceTool \
     LockClock
