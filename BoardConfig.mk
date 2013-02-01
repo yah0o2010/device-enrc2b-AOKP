@@ -28,8 +28,12 @@ BOARD_HAVE_HTC_FFC := true
 BOARD_CAMERA_HAVE_ISO := true
 
 # Flags
-TARGET_GLOBAL_CFLAGS += -mfpu=neon -mfloat-abi=softfp
-TARGET_GLOBAL_CPPFLAGS += -mfpu=neon -mfloat-abi=softfp
+USE_MORE_OPT_FLAGS := yes
+DEBUG_NO_STDCXX11 := yes
+
+#BASE_CFLAGS := -mfpu=neon -mfloat-abi=softfp
+#TARGET_GLOBAL_CFLAGS += $(BASE_CFLAGS)
+#TARGET_GLOBAL_CPPFLAGS += $(BASE_CFLAGS)
 
 # Board 
 TARGET_BOARD_PLATFORM := tegra
@@ -41,6 +45,7 @@ TARGET_ARCH_VARIANT := armv7-a-neon
 TARGET_ARCH_VARIANT_CPU := cortex-a9
 TARGET_CPU_SMP := true
 ARCH_ARM_HAVE_TLS_REGISTER := true
+TARGET_EXTRA_CFLAGS += -mtune=cortex-a9 -mcpu=cortex-a9
 
 # Board nameing
 TARGET_NO_RADIOIMAGE := true
