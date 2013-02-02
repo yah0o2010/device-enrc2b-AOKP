@@ -134,16 +134,20 @@ PRODUCT_COPY_FILES += \
     device/htc/enrc2b/bootanimation/bootanimation.zip:system/media/bootanimation.zip
     
 PRODUCT_PACKAGES += \
-         hostapd_cli \
-         calibrator
+	hostapd_cli \
+    calibrator
 
+# video
+PRODUCT_PACKAGES += \
+	libstagefrighthw
+	
 # lights
 PRODUCT_PACKAGES += \
-        lights.tegra
+	lights.tegra
 
 # power
 PRODUCT_PACKAGES += \
-        power.tegra
+	power.tegra
         
 #NFC
 PRODUCT_PACKAGES += \
@@ -388,7 +392,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/proprietary/lib/libposteffect.so:/system/lib/libposteffect.so \
     $(LOCAL_PATH)/proprietary/lib/libscalado.so:/system/lib/libscalado.so \
     $(LOCAL_PATH)/proprietary/lib/libsensors_mpl.so:/system/lib/libsensors_mpl.so \
-    $(LOCAL_PATH)/proprietary/lib/libstagefrighthw.so:/system/lib/libstagefrighthw.so \
     $(LOCAL_PATH)/proprietary/lib/libhtcsunny2engine.so:/system/lib/libhtcsunny2engine.so \
     $(LOCAL_PATH)/proprietary/lib/libhtcsunnyengine.so:/system/lib/libhtcsunnyengine.so \
     $(LOCAL_PATH)/proprietary/lib/libhtccamera.so:/system/lib/libhtccamera.so \
