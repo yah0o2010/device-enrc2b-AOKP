@@ -8,6 +8,12 @@
 
   <remote name="cornedor"
            fetch="https://github.com/cornedor" />
+
+  <remote name="github"
+           fetch="https://github.com/" />
+
+  <remote name="linaro"
+           fetch="http://android.git.linaro.org/git-ro/platform" />
            
   <!-- Begin local repos --> 
   <remove-project path="build" name="AOKP/android_build"/>
@@ -30,7 +36,7 @@
   <remove-project path="packages/apps/Camera" name="AOKP/packages_apps_Camera" />
   <project path="packages/apps/Camera" name="android_packages_apps_Camera" remote="maxwen" revision="jb-mr1" />
 
-  <remove-project path="external/bluetooth/bluedroid" name="platform/external/bluetooth/bluedroid" />
+  <remove-project path="external/bluetooth/bluedroid" name="AOKP/external_bluetooth_bluedroid" />
   <project path="external/bluetooth/bluedroid" name="bluedroid" remote="maxwen" revision="jb-mr1" />
 
   <remove-project path="vendor/aokp" name="AOKP/vendor_aokp" />
@@ -45,7 +51,6 @@
   <remove-project path="packages/apps/Nfc" name="AOKP/packages_apps_Nfc" />
   <project path="packages/apps/Nfc" name="Nfc" remote="maxwen" revision="jb-mr1"/>
 
-  <project path="packages/apps/LockClock" name="android_packages_apps_LockClock" remote="maxwen" revision="cm-10.1" />
   <project path="packages/apps/Trebuchet" name="android_packages_apps_Trebuchet" remote="maxwen" revision="cm-10.1"/>
 
   <remove-project path="frameworks/opt/telephony" name="android_frameworks_opt_telephony" />  
@@ -54,9 +59,12 @@
   <remove-project path="packages/apps/PerformanceControl" name="AOKP/packages_apps_PerformanceControl" />
   <project path="packages/apps/PerformanceControl" name="packages_apps_PerformanceControl" remote="maxwen" revision="jb-mr1" />
   <!-- PerformanceTool -->
-  <project path="packages/apps/PerformanceTool" name="performance-tool" remote="cornedor" />
+  <project path="packages/apps/PerformanceTool" name="performance-tool" remote="cornedor" revision="master"/>
 
   <!-- IceColdJelly repos -->
+  <remove-project path="external/skia" name="platform/external/skia" />
+  <project path="external/skia" name="android_external_skia" remote="jelly42" revision="cm-10.1" />
+
   <remove-project name="AOKP/android_system_core" path="system/core"/>
   <project path="system/core" name="android_system_core" remote="jelly42" revision="jb-mr1" />
 
@@ -83,12 +91,16 @@
 
   <remove-project path="packages/apps/DeskClock" name="AOKP/packages_apps_DeskClock"/>
   <project path="packages/apps/DeskClock" name="packages_apps_DeskClock" remote="jelly42" revision="jb-mr1" />
-   
+
+  <remove-project path="system/extras" name="AOKP/system_extras" />
+  <project path="system/extras" name="system_extras" remote="jelly42" revision="jb-mr1" />
+  
   <!-- CM repos -->
   <project path="packages/apps/CMFileManager" name="android_packages_apps_CMFileManager" remote="cm" revision="cm-10.1"/>
   <project path="packages/apps/Apollo" name="android_packages_apps_Apollo" remote="cm" revision="cm-10.1"/>
   <project path="packages/apps/DSPManager" name="android_packages_apps_DSPManager" remote="cm" revision="cm-10.1"/>
-    
+  <project path="packages/apps/LockClock" name="android_packages_apps_LockClock" remote="cm" revision="cm-10.1" />
+      
   <remove-project path="packages/apps/Torch" name="AOKP/packages_apps_Torch" />
   <project path="packages/apps/Torch" name="android_packages_apps_Torch" remote="cm" revision="cm-10.1"/>   
     
@@ -101,6 +113,93 @@
   <remove-project path="frameworks/opt/vcard" name="platform/frameworks/opt/vcard" />
   <project path="frameworks/opt/vcard" name="android_frameworks_opt_vcard" remote="cm" revision="cm-10.1" />
 
+  <!-- othe repos -->
+  <remove-project path="external/stlport" name="platform/external/stlport" />
+  <project path="external/stlport" name="Stevespear426/external_stlport" remote="github" revision="jb-mr1" />
+  
+  <remove-project path="external/busybox" name="android_external_busybox" />
+  <project path="external/busybox" name="Stevespear426/external_busybox" remote="github" revision="jb-mr1" />  
+ 
+  <remove-project path="bionic" name="AOKP/android_bionic"/>
+  <project path="bionic" name="Stevespear426/android_bionic" remote="github" revision="jb-mr1" />
+
+  <remove-project path="external/clang" name="platform/external/clang" />
+  <project path="external/clang" name="pbeeler/android_external_clang" remote="github" revision="sm-jb-mr1" />
+
+  <remove-project path="frameworks/ex" name="platform/frameworks/ex" />
+  <project path="frameworks/ex" name="pbeeler/android_frameworks_ex" remote="github" revision="sm-jb-mr1" />
+
+  <remove-project path="frameworks/wilhelm" name="platform/frameworks/wilhelm" />
+  <project path="frameworks/wilhelm" name="Stevespear426/frameworks_wilhelm" remote="github" revision="jb-mr1" />  
+  
+  <remove-project path="frameworks/compile/libbcc" name="platform/frameworks/compile/libbcc" />  
+  <project path="frameworks/compile/libbcc" name="pbeeler/android_frameworks_compile_libbcc" remote="github" revision="sm-jb-mr1" />
+
+  <remove-project path="frameworks/compile/mclinker" name="platform/frameworks/compile/mclinker" />
+  <project path="frameworks/compile/mclinker" name="Stevespear426/frameworks_compile_mclinker" remote="github" revision="jb-mr1" />  
+
+  <remove-project path="external/dnsmasq" name="platform/external/dnsmasq" />
+  <project path="external/dnsmasq" name="Stevespear426/external_dnsmasq" remote="github" revision="jb-mr1" />
+
+  <remove-project path="external/e2fsprogs" name="platform/external/e2fsprogs" />
+  <project path="external/e2fsprogs" name="Stevespear426/external_e2fsprogs" remote="github" revision="jb-mr1" />
+
+  <remove-project path="external/elfutils" name="platform/external/elfutils" />
+  <project path="external/elfutils" name="pbeeler/android_external_elfutils" remote="github" revision="sm-jb-mr1" />
+
+  <remove-project path="external/openfst" name="platform/external/openfst" />
+  <project path="external/openfst" name="platform/external/openfst" />
+
+  <remove-project path="external/openssh" name="platform/external/openssh" />
+  <project path="external/openssh" name="Stevespear426/external_openssh" remote="github" revision="jb-mr1" />
+
+  <remove-project path="external/openssl" name="platform/external/openssl" />
+  <project path="external/openssl" name="Stevespear426/external_openssl" remote="github" revision="jb-mr1" />
+
+  <remove-project path="external/oprofile" name="platform/external/oprofile" />   
+  <project path="external/oprofile" name="pbeeler/android_external_oprofile" remote="github" revision="sm-jb-mr1" />
+
+  <remove-project path="external/ping" name="platform/external/ping" />
+  <project path="external/ping" name="Stevespear426/external_ping" remote="github" revision="jb-mr1" />      
+
+  <remove-project path="external/llvm" name="platform/external/llvm" />
+  <project path="external/llvm" name="pbeeler/android_external_llvm" remote="github" revision="sm-jb-mr1" />
+  
+  <remove-project path="system/security" name="platform/system/security" />
+  <project path="system/security" name="Stevespear426/system_security" remote="github" revision="jb-mr1" />
+
+  <remove-project path="external/v8" name="platform/external/v8" />
+  <project path="external/v8" name="pbeeler/android_external_v8" remote="github" revision="sm-jb-mr1" />
+  
   <remove-project path="external/webkit" name="platform/external/webkit" />  
-  <project path="external/webkit" name="android_external_webkit" remote="cm" revision="cm-10.1" />
+  <project path="external/webkit" name="pbeeler/android_external_webkit" remote="github" revision="sm-jb-mr1" />  
+
+  <remove-project path="external/quake" name="platform/external/quake" />  
+  <project path="external/quake" name="pbeeler/android_external_quake" remote="github" revision="sm-jb-mr1" />  
+
+  <remove-project path="external/mesa3d" name="platform/external/mesa3d" />
+  <project path="external/mesa3d" name="pbeeler/android_external_mesa3d" remote="github" revision="sm-jb-mr1" />  
+
+  <remove-project path="development" name="platform/development" />
+  <project path="development" name="Stevespear426/development" remote="github" revision="jb-mr1" />  
+
+  <remove-project path="libcore" name="platform/libcore" />
+  <project path="libcore" name="pbeeler/android_libcore" remote="github" revision="sm-jb-mr1" />
+  
+  <remove-project path="external/chromium" name="platform/external/chromium" />
+  <project path="external/chromium" name="Stevespear426/external_chromium" remote="github" revision="jb-mr1" />
+
+  <remove-project path="frameworks/rs" name="AOKP/frameworks_rs" />
+  <project path="frameworks/rs" name="pbeeler/android_frameworks_rs" remote="github" revision="sm-jb-mr1" />
+  
+  <remove-project path="frameworks/support" name="platform/frameworks/support" />
+  <project path="frameworks/support" name="pbeeler/android_frameworks_support" remote="github" revision="sm-jb-mr1" />
+  
+  <!-- toolchains -->
+  <!-- this is gcc 4.6.3!!! -->
+  <!--<project path="prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.7" name="platform_prebuilts_gcc_linux-x86_arm_linaro-arm-eabi-4.7" remote="jelly42" revision="jb-mr1" />-->
+  <project path="prebuilts/gcc/linux-x86/arm/arm-eabi-4.7" name="platform/prebuilts/gcc/linux-x86/arm/arm-eabi-4.7" groups="linux,arm" revision="master" />
+  <project path="prebuilts/gcc/linux-x86/x86/i686-linux-android-4.7" name="platform/prebuilts/gcc/linux-x86/x86/i686-linux-android-4.7" groups="linux,x86" revision="master" />
+  <project path="prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.7" name="platform/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.7" groups="linux,arm" revision="master" />
+
 </manifest>
