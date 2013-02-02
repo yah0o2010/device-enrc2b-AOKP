@@ -29,7 +29,6 @@ BOARD_CAMERA_HAVE_ISO := true
 
 # Flags
 USE_MORE_OPT_FLAGS := yes
-DEBUG_NO_STDCXX11 := yes
 
 #BASE_CFLAGS := -mfpu=neon -mfloat-abi=softfp
 #TARGET_GLOBAL_CFLAGS += $(BASE_CFLAGS)
