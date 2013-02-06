@@ -185,7 +185,8 @@ PRODUCT_PACKAGES += \
     CMFileManager \
     PinyinIME \
     PerformanceTool \
-    LockClock
+    LockClock \
+    CellBroadcastReceiver
     
 # Misc
 PRODUCT_PACKAGES += \

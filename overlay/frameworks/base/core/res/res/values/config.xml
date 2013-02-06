@@ -239,4 +239,6 @@
          it is disabled by default so devices need to add an overlay to enable-->
     <string name="config_fastChargePath" translatable="false">/sys/devices/platform/htc_battery/fast_charge</string>
 
+    <!-- Set to true to add links to Cell Broadcast app from Settings and MMS app. -->
+	<bool name="config_cellBroadcastAppLinks">true</bool>
 </resources>
