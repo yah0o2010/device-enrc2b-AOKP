@@ -242,7 +242,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
         dalvik.vm.execution-mode=int:jit \
         dalvik.vm.lockprof.threshold=500 \
         dalvik.vm.dexopt-flags=m=y \
-        persist.sys.usb.config=mtp,adb
+        persist.sys.usb.config=mtp,adb \
+        ro.adb.secure=0
 
 # Tegra 3 spacific overrides
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -267,6 +268,7 @@ $(call inherit-product, frameworks/native/build/phone-xhdpi-1024-dalvik-heap.mk)
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/proprietary/bin/agpsd:/system/bin/agpsd \
+    $(LOCAL_PATH)/proprietary/bin/hdmid:/system/bin/hdmid \
     $(LOCAL_PATH)/proprietary/bin/glgps:/system/bin/glgps \
     $(LOCAL_PATH)/proprietary/bin/gpslogd:/system/bin/gpslogd \
     $(LOCAL_PATH)/proprietary/bin/atpipe_plain:/system/bin/atpipe_plain \
