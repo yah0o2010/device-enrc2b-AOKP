@@ -27,12 +27,6 @@ CAMERA_USES_SURFACEFLINGER_CLIENT_STUB := true
 BOARD_HAVE_HTC_FFC := true
 BOARD_CAMERA_HAVE_ISO := true
 
-# Flags
-# use GCC version 4.6
-TARGET_GCC_VERSION := 4.6
-TARGET_TOOLCHAIN_LINARO := yes
-USE_MORE_OPT_FLAGS := yes
-
 # Board 
 TARGET_BOARD_PLATFORM := tegra
 TARGET_NO_BOOTLOADER := true
@@ -43,7 +37,6 @@ TARGET_ARCH_VARIANT := armv7-a-neon
 TARGET_ARCH_VARIANT_CPU := cortex-a9
 TARGET_CPU_SMP := true
 ARCH_ARM_HAVE_TLS_REGISTER := true
-TARGET_EXTRA_CFLAGS += -mtune=cortex-a9 -mcpu=cortex-a9
 
 # Board nameing
 TARGET_NO_RADIOIMAGE := true
@@ -105,6 +98,6 @@ BOARD_FLASH_BLOCK_SIZE := 4096
 TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/class/android_usb/android0/f_mass_storage/lun%d/file
 
 # Try to build the kernel
-TARGET_KERNEL_SOURCE := kernel/htc/enrc2b
+#TARGET_KERNEL_SOURCE := kernel/htc/enrc2b
 
 
