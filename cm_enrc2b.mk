@@ -243,7 +243,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
         dalvik.vm.lockprof.threshold=500 \
         dalvik.vm.dexopt-flags=m=y \
         persist.sys.usb.config=mtp,adb \
-        ro.adb.secure=0
+        ro.adb.secure=0 \
+        service.htc_ebdlogd.enable=0
 
 # Tegra 3 spacific overrides
 PRODUCT_PROPERTY_OVERRIDES += \
