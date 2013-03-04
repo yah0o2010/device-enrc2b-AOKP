@@ -186,8 +186,9 @@ PRODUCT_PACKAGES += \
     PinyinIME \
     PerformanceTool \
     LockClock \
-    CellBroadcastReceiver
-    
+    CellBroadcastReceiver \
+    EndeavoruParts
+
 # Misc
 PRODUCT_PACKAGES += \
     com.android.future.usb.accessory \
@@ -244,7 +245,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
         dalvik.vm.dexopt-flags=m=y \
         persist.sys.usb.config=mtp,adb \
         ro.adb.secure=0 \
-        service.htc_ebdlogd.enable=0
+        service.htc_ebdlogd.enable=1
 
 # Tegra 3 spacific overrides
 PRODUCT_PROPERTY_OVERRIDES += \
