@@ -7,9 +7,9 @@ import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.PreferenceManager;
 import java.io.File;
 
-public class BacklightDisable implements OnPreferenceChangeListener {
+public class BacklightNotificationSwitch implements OnPreferenceChangeListener {
 
-    private static final String FILE = "/sys/class/leds/button-backlight/brightness";
+    private static final String FILE = "/sys/class/leds/button-backlight/slow_blink";
 
     public static boolean isSupported() {
         return Utils.fileWritable(FILE);
@@ -17,11 +17,11 @@ public class BacklightDisable implements OnPreferenceChangeListener {
 
 	public static boolean isEnabled(Context context) {
         SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
-        return sharedPrefs.getBoolean(DeviceSettings.KEY_BACKLIGHTDISABLE, false);
+        return sharedPrefs.getBoolean(DeviceSettings.KEY_BACKLIGHTNOTIFICATION, true);
 	}
 	
     /**
-     * Restore button backlight setting from SharedPreferences. (Write to kernel.)
+     * Restore button backlight notification blink setting from SharedPreferences. (Write to kernel.)
      * @param context       The context to read the SharedPreferences from
      */
     public static void restore(Context context) {
@@ -29,15 +29,13 @@ public class BacklightDisable implements OnPreferenceChangeListener {
             return;
         }
 
-        boolean enabled = isEnabled(context);        
+        boolean enabled = isEnabled(context);      
         File blFile = new File(FILE);
         blFile.setWritable(true);
-        if(enabled) {
+        if(!enabled) {
+        	// make sure blincking stops first before making it r/o
             Utils.writeValue(FILE, "0");
             blFile.setWritable(false);
-        }
-        else {
-            Utils.writeValue(FILE, "1");
         }
     }
 
@@ -46,12 +44,10 @@ public class BacklightDisable implements OnPreferenceChangeListener {
         Boolean enabled = (Boolean) newValue;
         File blFile = new File(FILE);
         blFile.setWritable(true);
-        if(enabled) {
+        if(!enabled) {
+        	// make sure blincking stops first before making it r/o
             Utils.writeValue(FILE, "0");
             blFile.setWritable(false);
-        }
-        else {
-            Utils.writeValue(FILE, "1");
         }
         return true;
     }
