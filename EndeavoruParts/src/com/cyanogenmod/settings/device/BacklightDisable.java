@@ -12,7 +12,7 @@ public class BacklightDisable implements OnPreferenceChangeListener {
     private static final String FILE = "/sys/class/leds/button-backlight/brightness";
 
     public static boolean isSupported() {
-        return Utils.fileWritable(FILE);
+        return Utils.fileExists(FILE);
     }
 
 	public static boolean isEnabled(Context context) {

@@ -12,7 +12,7 @@ public class BacklightNotificationSwitch implements OnPreferenceChangeListener {
     private static final String FILE = "/sys/class/leds/button-backlight/slow_blink";
 
     public static boolean isSupported() {
-        return Utils.fileWritable(FILE);
+        return Utils.fileExists(FILE);
     }
 
 	public static boolean isEnabled(Context context) {
