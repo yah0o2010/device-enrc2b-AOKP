@@ -306,8 +306,8 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/proprietary.IceColdJelly/lib/libnvwinsys.so:/system/lib/libnvwinsys.so
 
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/proprietary.aosp/lib/libsurfaceflinger.so:/system/lib/libsurfaceflinger.so
+#PRODUCT_COPY_FILES += \
+#    $(LOCAL_PATH)/proprietary.aosp/lib/libsurfaceflinger.so:/system/lib/libsurfaceflinger.so
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/proprietary/lib/egl/libEGL_perfhud.so:/system/lib/egl/libEGL_perfhud.so \
