@@ -31,7 +31,7 @@
 
 #include <hardware/lights.h>
 
-#define DEBUG 1
+#define DEBUG 0
 
 static pthread_once_t g_init = PTHREAD_ONCE_INIT;
 static pthread_mutex_t g_lock = PTHREAD_MUTEX_INITIALIZER;
@@ -213,14 +213,18 @@ static void set_light_buttons_blink_locked(struct light_device_t *dev,
   // Start blinking only if backlight buttons are off and screen is off
   if(is_lit(state) && !is_lit(&g_buttons) && g_backlight==0) {
   	if(!g_isblinking){
+#ifdef DEBUG
   		ALOGW("start button blinking %d, buttons %d", is_lit(state), is_lit(&g_buttons));
+#endif
   		write_int(BUTTON_CURRENTS_FILE, 1);
       	write_int(BUTTON_SLOW_BLINK_FILE , 128);
     	g_isblinking = 1;
     }
   } else {
   	if(g_isblinking){
+#ifdef DEBUG
   		ALOGW("stop button blinking %d, buttons %d", is_lit(state), is_lit(&g_buttons));
+#endif
       	write_int(BUTTON_SLOW_BLINK_FILE, 0);
     	g_isblinking = 0;
     }
@@ -282,7 +286,9 @@ static int set_light_backlight(struct light_device_t* dev,
                                struct light_state_t const* state) {
   int err = 0;
   int brightness = rgb_to_brightness(state);
+#ifdef DEBUG
   ALOGV("%s brightness=%d color=0x%08x", __func__,brightness, state->color);
+#endif
   pthread_mutex_lock(&g_lock);
   g_backlight = brightness;
   err = write_int(LCD_BACKLIGHT_FILE, brightness);
