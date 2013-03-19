@@ -8,7 +8,6 @@ ro.opengles.version = 131072
 ro.sf.lcd_density=320
 ro.hwui.text_cache_width=2048
 ro.hwui.text_cache_height=256
-windowsmgr.max_events_per_sec = 240
 
 # Addidional info for Settings/About/Hardware
 ro.device.chipset=nVidia Tegra AP37
