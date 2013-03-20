@@ -309,6 +309,8 @@ PRODUCT_COPY_FILES += \
 #PRODUCT_COPY_FILES += \
 #    $(LOCAL_PATH)/proprietary.aosp/lib/libsurfaceflinger.so:/system/lib/libsurfaceflinger.so
 
+# $(LOCAL_PATH)/proprietary/lib/hw/audio_policy.tegra.so:/system/lib/hw/audio_policy.tegra.so
+
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/proprietary/lib/egl/libEGL_perfhud.so:/system/lib/egl/libEGL_perfhud.so \
     $(LOCAL_PATH)/proprietary/lib/egl/libEGL_tegra.so:/system/lib/egl/libEGL_tegra.so \
@@ -322,7 +324,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/proprietary/lib/hw/hwcomposer.tegra.so:/system/lib/hw/hwcomposer.tegra.so \
     $(LOCAL_PATH)/proprietary/lib/hw/gralloc.tegra.so:/system/lib/hw/gralloc.tegra.so \
     $(LOCAL_PATH)/proprietary/lib/hw/gralloc.default.so:/system/lib/hw/gralloc.default.so \
-    $(LOCAL_PATH)/proprietary/lib/hw/audio_policy.tegra.so:/system/lib/hw/audio_policy.tegra.so \
     $(LOCAL_PATH)/proprietary/lib/hw/gps.tegra.so:/system/lib/hw/gps.tegra.so \
     $(LOCAL_PATH)/proprietary/lib/hw/audio.primary.tegra.so:/system/lib/hw/audio.primary.tegra.so \
     $(LOCAL_PATH)/proprietary/lib/hw/camera.tegra.so:/system/lib/hw/camera.tegra.so \
